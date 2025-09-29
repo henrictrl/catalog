@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="transition-colors duration-300">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nova Rio Branco - Papelaria e Utilidades</title>
+    <script>
+        // Check theme preference and apply it immediately
+        if (localStorage.getItem('theme') === 'dark' || 
+            (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        }
+    </script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-slate-100 transition-colors duration-300">
+    <header>
+        <div class="container">
+            <h1 class="logo">Nova Rio Branco</h1>
+            <button id="theme-toggle" class="theme-toggle">
+                <svg id="theme-icon-light" class="icon hidden" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
+                </svg>
+                <svg id="theme-icon-dark" class="icon hidden" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/>
+                </svg>
+            </button>
+            <div class="search-container">
+                <input type="search" id="searchInput" placeholder="O que você está procurando?">
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <aside class="filters">
+            <h2>Filtros</h2>
+            <div class="filter-group">
+                <label for="categoryFilter">Categoria</label>
+                <select id="categoryFilter">
+                    <option value="all">Todas</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label>Faixa de Preço</label>
+                <input type="number" id="minPrice" placeholder="Preço mínimo">
+                <input type="number" id="maxPrice" placeholder="Preço máximo">
+            </div>
+            <div class="filter-group">
+                <label>Ordenar</label>
+                <button id="sortAZ" class="sort-btn">A-Z</button>
+                <button id="sortZA" class="sort-btn">Z-A</button>
+            </div>
+            <button id="clearFilters" class="clear-filters">Limpar Filtros</button>
+        </aside>
+
+        <section id="product-catalog" class="product-grid"></section>
+    </main>
+
+    <div id="product-modal" class="modal">
+        <div class="modal-content">
+            <button class="close-button">&times;</button>
+            <h2 id="modal-title"></h2>
+            <div id="modal-grid"></div>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
