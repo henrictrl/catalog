@@ -404,6 +404,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const header = document.createElement('div');
         header.className = 'variation-card';
         header.innerHTML = `
+            <p><strong>Imagem</strong></p>
             <p><strong>Título</strong></p>
             <p><strong>Marca</strong></p>
             <p><strong>Tamanho</strong></p>
@@ -415,6 +416,9 @@ document.addEventListener('DOMContentLoaded', () => {
             const variationCard = document.createElement('div');
             variationCard.className = 'variation-card';
             variationCard.innerHTML = `
+                <img src="https://placehold.co/80x80/4f46e5/ffffff?text=${encodeURIComponent(product.name)}" 
+                     alt="${v.title}" 
+                     class="variation-image">
                 <p>${v.title}</p>
                 <p>${v.brand}</p>
                 <p>${v.size}</p>
