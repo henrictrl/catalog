@@ -401,17 +401,7 @@ document.addEventListener('DOMContentLoaded', () => {
         modalTitle.textContent = `Variações de ${product.name}`;
         modalGrid.innerHTML = '';
 
-        const header = document.createElement('div');
-        header.className = 'variation-card';
-        header.innerHTML = `
-            <p><strong>Imagem</strong></p>
-            <p><strong>Título</strong></p>
-            <p><strong>Marca</strong></p>
-            <p><strong>Tamanho</strong></p>
-            <p style="text-align: right;"><strong>Preço</strong></p>
-        `;
-        modalGrid.appendChild(header);
-
+        // Removido o header e renderizando diretamente as variações
         product.variations.forEach(v => {
             const variationCard = document.createElement('div');
             variationCard.className = 'variation-card';
